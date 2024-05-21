@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { addName, addNumber, addItem} from "../redux/actions";
-import { getItems, getNumber, getName } from "../redux/selectror";
+import { addItem, deleteItem} from "../redux/actions";
+import { getItems} from "../redux/selectror";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
@@ -10,9 +10,9 @@ export const TextInput = () => {
 
     const dispatch = useDispatch();
     const items = useSelector(getItems);
+
     const [nameValue, setNameValue] = useState('');
     const [numberValue, setNumberValue] = useState('')
-
     const [name, setName] = useState()
     const [number, setNumber] =useState()
 
@@ -25,7 +25,7 @@ export const TextInput = () => {
         }
         else if (event.target.name === 'number') {
             setNumberValue(event.target.value);
-           setNumber(event.target.value)
+           setNumber(event.target.id)
         }
     
     };
@@ -38,6 +38,11 @@ export const TextInput = () => {
         setNumber()
         setNameValue('')
         setNumberValue('')
+    }
+
+    const onClick=event=>{
+        event.preventDefault();
+        dispatch(deleteItem(event.target.parentNode.id));
     }
    
     return (
@@ -75,6 +80,7 @@ export const TextInput = () => {
                 <div id={item.id} key={item.id}>
                     <p>Name: {item.name}</p>
                     <p>Number: {item.number}</p>
+                    <button onClick={onClick} >Delete</button>
                 </div>
             ))}
         </div>

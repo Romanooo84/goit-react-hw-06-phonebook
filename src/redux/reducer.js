@@ -19,8 +19,11 @@ const itemsReducer = (state = initialState, action) => {
         ]
       };
     case "items/deleteItem":
-      console.log(action.type)
-      return state;
+      console.log(state.items);
+      return {
+        ...state,
+        items: state.items.filter(item => item.id !== action.payload.text)
+      };
     default:
       return state;
   }
