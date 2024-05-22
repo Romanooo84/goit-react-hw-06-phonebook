@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { nanoid } from "@reduxjs/toolkit";
+
 const initialState = {
   items: [
     {id: 'id-1', name: 'Rsie Simpson', number: '459-12-56' },
