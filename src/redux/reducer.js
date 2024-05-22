@@ -7,6 +7,7 @@ const initialState = {
     {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26' }
   ],
+  filters: ''
 };
  
 const itemsReducer = (state = initialState, action) => {
@@ -19,11 +20,15 @@ const itemsReducer = (state = initialState, action) => {
         ]
       };
     case "items/deleteItem":
-      console.log(state.items);
       return {
         ...state,
         items: state.items.filter(item => item.id !== action.payload.text)
       };
+      case "items/filterItem":
+        return {
+          ...state,
+          filters: action.payload.text
+        };
     default:
       return state;
   }

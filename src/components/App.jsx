@@ -2,7 +2,7 @@ import { TextInput } from "./textinput"
 import { UsersList } from "./users";
 import { Filter } from "./filter";
 import { useDispatch } from "react-redux";
-import { addItem, deleteItem} from "../redux/actions";
+import { addItem, deleteItem, filterItem} from "../redux/actions";
 
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
@@ -28,6 +28,11 @@ export const App = () => {
             setNumberValue(event.target.value);
             setNumber(event.target.value)
         }
+
+        else if (event.target.name === 'filter') {
+            dispatch(filterItem(event.target.value));
+
+        }
     
     };
 
@@ -49,7 +54,7 @@ export const App = () => {
     return (
         <div>
             <TextInput onSubmit={onSubmit} onChange={onChange} nameValue={nameValue} numberValue={numberValue}/>
-            <Filter />
+            <Filter onChange={onChange}/>
             <UsersList onClick={onClick}/>
         </div>
     )

@@ -17,3 +17,12 @@ export const deleteItem = text => {
     },
   };
 };
+
+export const filterItem = text => {
+  return {
+    type: "items/filterItem",
+    payload: {
+      text
+    },
+  };
+};
