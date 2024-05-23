@@ -5,7 +5,8 @@ export const TextInput = ({onSubmit, nameValue, onChange, numberValue}) => {
     return (
     <div>  
         <p>Contacts</p>
-        <form onSubmit={onSubmit}> 
+        <form style={{ display: 'flex' }} onSubmit={onSubmit} > 
+        <div>
             <p>Name</p>    
                     <input
                     type="text"
@@ -19,6 +20,9 @@ export const TextInput = ({onSubmit, nameValue, onChange, numberValue}) => {
                     
                     
                 />
+                </div>
+               <div>
+                <p>Phone number</p> 
                 <input
                     type="tel"
                     name="number"
@@ -30,6 +34,7 @@ export const TextInput = ({onSubmit, nameValue, onChange, numberValue}) => {
                     
                     />
                 <button type='submit'>Add Contact</button>
+                </div> 
             </form> 
     </div>
     )
