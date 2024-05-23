@@ -15,6 +15,11 @@ export const UsersList=({onClick})=>{
     } else {
         items = items.items;
     }
+   try {
+        localStorage.setItem('localContacts', JSON.stringify(items));
+      } catch (error) {
+        console.error('Błąd podczas zapisywania danych do local storage:', error);
+      }
 
     let Contacts = items.map((item) => (
         <div id={item.id} key={item.id}>
