@@ -1,6 +1,7 @@
 export const Filter = ({ onChange }) => {
     return (
-        
+        <div>
+            <p>Filtr Contacts</p>
             <input
                     type="text"
                     name="filter"
@@ -10,5 +11,6 @@ export const Filter = ({ onChange }) => {
                     required
                     onChange={onChange }
                 />
+        </div>
     )
 }
