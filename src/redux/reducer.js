@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { LockalStorageData } from "./hooks/getlockalstoragedata";
+import { LockalStorageData } from "./hooks/getlockalstoragedata.js";
 
 let initialData = [
   {id: 'id-1', name: 'Rsie Simpson', number: '459-12-56' },
